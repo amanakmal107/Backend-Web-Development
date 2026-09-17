@@ -2,7 +2,6 @@
  * articles-api — entry point.
  *
  * Runtime configuration is read exclusively from config/index.js.
- * No process.env references belong here.
  *
  * Run it with:  npm start
  */

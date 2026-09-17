@@ -2,13 +2,13 @@
  * Central error handler.
  *
  * AppError is imported from utils/AppError.js (no longer duplicated here).
- * nodeEnv is imported from config (no process.env read here).
+ * nodeEnv is imported from config.
  */
 
 'use strict';
 
-const AppError = require('./../utils/AppError');
-const config   = require('./../config');
+const AppError = require('../utils/AppError');
+const config   = require('../config');
 
 module.exports = function errorHandler(err, req, res, next) {
   const status = err.statusCode || 500;

@@ -2,14 +2,14 @@
  * Articles service.
  *
  * AppError is imported from utils/AppError.js (single source of truth).
- * maxArticles cap is imported from config (no process.env reads here).
+ * maxArticles cap is imported from config.
  */
 
 'use strict';
 
-const repo      = require('./../repository/articlesRepo');
-const AppError  = require('./../utils/AppError');
-const config    = require('./../config');
+const repo     = require('../repository/articlesRepo');
+const AppError = require('../utils/AppError');
+const config   = require('../config');
 
 exports.getAll = async () => repo.findAll();
 
