@@ -7,16 +7,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Complete the required models, relations, constraints, and indexes.
-// Keep the model names aligned with the assignment contract.
 model User {
-  id   Int    @id @default(autoincrement())
-  name String
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(255)
+  posts Post[]
+
+  @@index([name])
 }
 
 model Post {
   id       Int    @id @default(autoincrement())
-  title    String
-  body     String
+  title    String @db.VarChar(255)
+  body     String @default("")
   authorId Int
+
+  author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([authorId])
+  @@index([title])
 }
